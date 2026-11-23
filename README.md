@@ -1,6 +1,6 @@
 # Freeport developer resources
 
-Freeport Marketplace is a UK player-to-player marketplace for game currency, items, accounts and boosting, at [freeport.gg](https://freeport.gg). It is operated by FREEPORT MARKETPLACE LTD, company number 17472975.
+Freeport is a UK player-to-player marketplace for game currency, items, accounts and boosting, at [freeport.gg](https://freeport.gg). It is operated by FREEPORT MARKETPLACE LTD, company number 17472975.
 
 This repository holds the public parts of two things Freeport offers its sellers:
 
@@ -19,7 +19,7 @@ It contains the API contract, small runnable examples and the connector's entry 
 
 ## The seller API
 
-The seller API lets you connect or build your own tools to create and manage listings. Anything you can do from Selling in your browser, your software can do with a key: put stock up, hear about orders when they are paid, accept and deliver them, talk to the buyer in the order chat, answer disputes, read your balance, and keep a sheet of up to a thousand lines in step with your own system in one call. It cannot automate in-game delivery of items, currency or boosting.
+The seller API lets you connect or build your own tools to create and manage listings. Anything you can do from Selling in your browser your software can do with a key. List stock, get notified about orders when they are paid, accept and deliver them. Talk to a buyer in the order chat, answer disputes, read your balance, and keep a sheet of up to a thousand lines in step with your own system in one call. It cannot automate in-game delivery of items, currency or boosting.
 
 ### Who can use it
 
@@ -34,7 +34,7 @@ Live keys need a second factor on the account. More in the help article [The sel
 ### Reference
 
 - Reference and guides: [docs.freeport.gg](https://docs.freeport.gg/)
-- The contract: [`openapi.json`](openapi.json), also at `https://docs.freeport.gg/openapi.json` and, for a key holder, `GET /v1/openapi.json`
+- The contract: [`openapi.json`](openapi.json), also at `https://docs.freeport.gg/openapi.json` and for a key holder, `GET /v1/openapi.json`
 - A Postman collection with a request for every route: `https://docs.freeport.gg/freeport-seller-api.postman_collection.json` (it holds no key)
 
 ### Authentication
@@ -45,9 +45,9 @@ Send your key as a bearer token on every request:
 Authorization: Bearer fp_live_...
 ```
 
-Each key carries scopes, chosen when it is created: `catalog:read`, `listings:read`, `listings:write`, `orders:read`, `orders:write`, `disputes:read`, `disputes:write`, `chat:read`, `chat:write`, `account:read`, `account:write`, `payouts:read` and `webhooks:manage`. A key is shown once, when it is created. Keep it out of code you share and out of any repository.
+Each key carries scopes chosen when it is created: `catalog:read`, `listings:read`, `listings:write`, `orders:read`, `orders:write`, `disputes:read`, `disputes:write`, `chat:read`, `chat:write`, `account:read`, `account:write`, `payouts:read` and `webhooks:manage`. A key is shown once when it is created. Keep it out of code you share and out of any repository.
 
-Conventions everywhere: money is a decimal string in the row's currency, ids are prefixed ULIDs, times are ISO 8601 in UTC, lists are paged by an opaque cursor, and every error is `{ "error": { "code", "message", "requestId" } }`. Every response carries `RateLimit-Limit`, `RateLimit-Remaining` and `RateLimit-Reset`, and a 429 carries `Retry-After`. Writes accept an `Idempotency-Key` header, so a retry never runs a write twice.
+Conventions everywhere. Money is a decimal string in the row's currency, ids are prefixed ULIDs, times are ISO 8601 in UTC, lists are paged by an opaque cursor, and every error is `{ "error": { "code", "message", "requestId" } }`. Every response carries `RateLimit-Limit`, `RateLimit-Remaining` and `RateLimit-Reset`, and a 429 carries `Retry-After`. Writes accept an `Idempotency-Key` header, so a retry never runs a write twice.
 
 ### The sandbox
 
@@ -58,7 +58,7 @@ Conventions everywhere: money is a decimal string in the row's currency, ids are
 | Keys | `fp_test_...` | `fp_live_...`, after your application is approved |
 | Money | A stand-in payment provider; a synthetic buyer pays | Real orders, paid by card |
 
-A test key never works on production and a live key never works on the sandbox. The sandbox has a synthetic buyer you can order from yourself (`POST /v1/sandbox/orders`), confirm, cancel or dispute, so you can see every webhook before going live. The sandbox is switched on when a seller asks for API access: write to support@freeport.gg to have it started.
+A test key never works on production and a live key never works on the sandbox. The sandbox has a synthetic buyer you can order from yourself (`POST /v1/sandbox/orders`), confirm, cancel or dispute, you can see every webhook before going live. The sandbox is switched on when a seller asks for API access. Write to support@freeport.gg to have it started.
 
 ### Quick start
 
@@ -130,11 +130,11 @@ curl -sS -X POST "$FREEPORT_API/sandbox/orders" \
   -d '{ "listing_id": "LISTING_ID", "quantity": 5000 }'
 ```
 
-Webhooks are signed, retried and logged. Add an endpoint from Integrations or with `POST /v1/webhooks`, and subscribe to events such as `order.paid`, `order.completed`, `order.disputed` and `listing.low_stock`. The [Webhooks and Signing guides](https://docs.freeport.gg/) explain how to check a signature.
+Webhooks are signed retried and logged. Add an endpoint from Integrations or with `POST /v1/webhooks`, subscribe to events such as `order.paid`, `order.completed`, `order.disputed` and `listing.low_stock`. The [Webhooks and Signing guides](https://docs.freeport.gg/) explain how to check a signature.
 
 The [`examples`](examples) folder has the same calls as runnable scripts:
 
-- [`examples/curl.sh`](examples/curl.sh): ping, catalog, a draft listing, your listings, paid orders
+- [`examples/curl.sh`](examples/curl.sh): ping, catalog, draft listing, listings, paid orders
 - [`examples/node/quickstart.mjs`](examples/node/quickstart.mjs): Node 20 or later, no dependencies
 - [`examples/python/quickstart.py`](examples/python/quickstart.py): Python 3.9 or later, standard library only
 
@@ -156,7 +156,7 @@ It is a remote MCP server on the Streamable HTTP transport. It is stateless: eac
 
 ### Connecting an AI client
 
-The connector signs your AI in with OAuth. The first time, your AI opens a Freeport page in your browser: sign in if asked, enter your two-factor code, read what the app may and may not do, and allow it. You can see and disconnect each connected app on Imports to review in your seller console.
+The connector signs your AI in with OAuth. The first time, your AI opens a Freeport page in your browser. Sign in if asked, enter your two-factor code, read what the app may and may not do, and allow it. You can see and disconnect each connected app on Imports to review in your seller console.
 
 The apps that can connect today are Claude (web, desktop and mobile), Claude Code and ChatGPT.
 
@@ -169,7 +169,7 @@ The apps that can connect today are Claude (web, desktop and mobile), Claude Cod
   or, inside Claude Code, run `/mcp`, choose freeport and Authenticate.
 - **ChatGPT**: turn on Developer mode under Settings, Apps, then create an app with the address.
 
-Then ask, for example: "Bring my listings over from this page" with the address of the page, or paste the listing text.
+Then ask for example: "Bring my listings over from this page" with the address of the page, or paste the listing text.
 
 ### What it can and cannot do
 
@@ -181,12 +181,12 @@ The token's one scope is `listings:import`.
 | `find_game` | Reads | Games matching a name, with their categories |
 | `lane_guide` | Reads | How a game's category is listed on Freeport: its fields, limits and the words buyers filter by |
 | `match_server` | Reads | The game's servers that match the words another listing uses |
-| `check_listings` | Reads | Up to 50 lines, each answered with what would stop it and the warnings it would carry; saves nothing |
+| `check_listings` | Reads | Up to 50 lines, each answered with what would stop it and the warnings it would carry |
 | `stage_listings` | Writes drafts | Up to 50 lines saved as drafts for you to review |
 | `my_imports` | Reads | Your imported drafts still waiting, with their warnings |
-| `fix_import` | Writes drafts | Changes an imported draft that is still waiting; never a published listing |
+| `fix_import` | Writes drafts | Changes an imported draft that is still waiting, never a published listing |
 
-It cannot publish, change or remove a listing that is on sale, and it cannot see your orders, money, payouts, account logins or codes. An account's login and codes are added on Freeport, never through your AI. Freeport never fetches another site and never holds a login for one: your AI reads, and Freeport takes what it sends.
+It cannot publish, change or remove a listing that is on sale. It cannot see your orders, money, payouts, account logins or codes. An account's login and codes are added on Freeport, never through your AI. Freeport never fetches another site and never holds a login for one. Your AI reads, and Freeport takes what it sends.
 
 An imported listing that holds contact details cannot be published until they are removed. Buyers and sellers talk in the order's chat.
 
@@ -199,6 +199,6 @@ An imported listing that holds contact details cannot be published until they ar
 
 ## Licence
 
-The files in this repository are released under the MIT licence: see [LICENSE](LICENSE). The licence covers these files only. It grants no right to Freeport's name or marks, and use of the seller API and the connector is under [Freeport's terms](https://freeport.gg/terms).
+The files in this repository are released under the MIT licence. See [LICENSE](LICENSE). The licence covers these files only. It grants no right to Freeport's name or marks, and use of the seller API and the connector is under [Freeport's terms](https://freeport.gg/terms).
 
 FREEPORT MARKETPLACE LTD, 27 Old Gloucester Street, London, England, WC1N 3AX. Company number 17472975.
