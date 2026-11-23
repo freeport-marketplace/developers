@@ -1,0 +1,61 @@
+{
+  "aid": "freeport.gg:freeport",
+  "name": "Freeport Marketplace",
+  "description": "APIs of Freeport Marketplace, a UK player-to-player marketplace for game currency, items, accounts and boosting: the seller API for approved sellers, and the listing-import connector for a seller's AI assistant.",
+  "image": "https://freeport.gg/icon-512.png",
+  "url": "https://raw.githubusercontent.com/freeport-marketplace/developers/main/apis.json",
+  "created": "2026-11-22",
+  "modified": "2026-11-22",
+  "type": "Collection",
+  "kind": "company",
+  "specificationVersion": "0.25",
+  "tags": ["Marketplace", "Games", "Sellers", "Listings", "Orders", "Webhooks", "MCP"],
+  "apis": [
+    {
+      "aid": "freeport.gg:seller-api",
+      "name": "Freeport Seller API",
+      "description": "Lets an approved seller's own software manage listings and stock, follow and move orders, talk to buyers in the order chat, answer disputes and receive signed webhooks. Bearer keys, with a sandbox.",
+      "image": "https://freeport.gg/icon-512.png",
+      "humanURL": "https://docs.freeport.gg/",
+      "baseURL": "https://api.freeport.gg/v1",
+      "version": "2026-09-09",
+      "tags": ["Listings", "Stock", "Orders", "Chat", "Disputes", "Webhooks", "Sandbox"],
+      "properties": [
+        { "type": "Documentation", "url": "https://docs.freeport.gg/" },
+        { "type": "OpenAPI", "url": "https://docs.freeport.gg/openapi.json" },
+        { "type": "PostmanCollection", "url": "https://docs.freeport.gg/freeport-seller-api.postman_collection.json" },
+        { "type": "Sandbox", "url": "https://sandbox-api.freeport.gg/v1" },
+        { "type": "HelpCenter", "url": "https://freeport.gg/help/the-seller-api" }
+      ]
+    },
+    {
+      "aid": "freeport.gg:listing-import",
+      "name": "Freeport listing import (MCP)",
+      "description": "A remote MCP server that lets a seller's AI assistant bring their listings from another site into Freeport as drafts. Sign-in by OAuth. The seller reviews and publishes each draft on Freeport.",
+      "image": "https://freeport.gg/icon-512.png",
+      "humanURL": "https://freeport.gg/help/importing-listings-with-ai",
+      "baseURL": "https://api.freeport.gg/mcp",
+      "version": "1.0.0",
+      "tags": ["MCP", "AI", "Listings", "Import"],
+      "properties": [
+        { "type": "MCPServer", "url": "https://api.freeport.gg/mcp" },
+        { "type": "ProtectedResourceMetadata", "url": "https://api.freeport.gg/.well-known/oauth-protected-resource/mcp" },
+        { "type": "AuthorizationServerMetadata", "url": "https://api.freeport.gg/.well-known/oauth-authorization-server" },
+        { "type": "HelpCenter", "url": "https://freeport.gg/help/importing-listings-with-ai" }
+      ]
+    }
+  ],
+  "common": [
+    { "type": "TermsOfService", "url": "https://freeport.gg/terms" },
+    { "type": "PrivacyPolicy", "url": "https://freeport.gg/privacy" },
+    { "type": "Support", "url": "https://freeport.gg/contact" }
+  ],
+  "maintainers": [
+    {
+      "FN": "Freeport Marketplace",
+      "organizationName": "FREEPORT MARKETPLACE LTD",
+      "email": "support@freeport.gg",
+      "url": "https://freeport.gg"
+    }
+  ]
+}

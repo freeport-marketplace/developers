@@ -1,0 +1,26 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "gg.freeport/listing-import",
+  "title": "Freeport listing import",
+  "description": "Brings a seller's listings from another site into Freeport as drafts for the seller to review.",
+  "version": "1.0.0",
+  "websiteUrl": "https://freeport.gg/help/importing-listings-with-ai",
+  "icons": [
+    {
+      "src": "https://freeport.gg/favicon.svg",
+      "mimeType": "image/svg+xml",
+      "sizes": ["any"]
+    },
+    {
+      "src": "https://freeport.gg/icon-512.png",
+      "mimeType": "image/png",
+      "sizes": ["512x512"]
+    }
+  ],
+  "remotes": [
+    {
+      "type": "streamable-http",
+      "url": "https://api.freeport.gg/mcp"
+    }
+  ]
+}
