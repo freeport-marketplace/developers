@@ -15,6 +15,7 @@ It contains the API contract, small runnable examples and the connector's entry 
 | `examples/` | First calls with curl, Node and Python. |
 | `server.json` | The connector's entry for the official MCP Registry. |
 | `apis.json` | An APIs.json index of both. |
+| `LICENSE` | The MIT licence these files are released under. |
 
 ## The seller API
 
@@ -195,5 +196,9 @@ An imported listing that holds contact details cannot be published until they ar
 - Security reports: security@freeport.gg
 - Privacy: [freeport.gg/privacy](https://freeport.gg/privacy)
 - Terms: [freeport.gg/terms](https://freeport.gg/terms)
+
+## Licence
+
+The files in this repository are released under the MIT licence: see [LICENSE](LICENSE). The licence covers these files only. It grants no right to Freeport's name or marks, and use of the seller API and the connector is under [Freeport's terms](https://freeport.gg/terms).
 
 FREEPORT MARKETPLACE LTD, 27 Old Gloucester Street, London, England, WC1N 3AX. Company number 17472975.
